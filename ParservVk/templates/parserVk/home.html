@@ -1,0 +1,15 @@
+{% extends "parserVk/base.html" %}
+
+{% block content %}
+<form method="get">
+  <input type="text" name="idwall" />
+  <input type="text" name="namewall"  placeholder="имя группы если такое есть"/>
+{#    <input type="text" value="8" name="mytextbox" size="1" />#}
+  <input type="submit" class="btn" value="Click" name="print_btn">
+    {% for post in pars %}
+        <br/>
+        <a href="https://vk.com/{{ nameGroup }}?w=wall-{{ idwall }}_{{ post }}">пост {{ post }}</a>
+        <a href="{% url 'post-detail' post %}">просмотреть</a>
+    {% endfor %}
+    </form>
+{% endblock content %}
